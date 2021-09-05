@@ -14,6 +14,10 @@ npm run serve
 ```
 npm run build
 ```
+### Start JSON server for favorites
+```
+json-server --watch favorites.json
+```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

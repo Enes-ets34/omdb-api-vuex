@@ -1,0 +1,36 @@
+{
+  "favorites": [
+    {
+      "Title": "Agir Roman",
+      "Year": "1997",
+      "imdbID": "tt0149601",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNjI1NWMwNjMtMzJjOS00ODFhLTliY2YtNWQ4ZjkyZGFlZGE0XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
+      "id": 1
+    },
+    {
+      "Title": "Joker",
+      "Year": "2019",
+      "imdbID": "tt7286456",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+      "id": 2
+    },
+    {
+      "Title": "Müslüm",
+      "Year": "2018",
+      "imdbID": "tt7832124",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNWEzZmFjOWMtNjZmNS00ODY2LTg3NjctOTc4MjI2NzA4MmZmXkEyXkFqcGdeQXVyMTYzMDkwNjg@._V1_SX300.jpg",
+      "id": 3
+    },
+    {
+      "Title": "Iron Man",
+      "Year": "2008",
+      "imdbID": "tt0371746",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
+      "id": 4
+    }
+  ]
+}
