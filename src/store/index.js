@@ -20,7 +20,7 @@ export default createStore({
       state.favorites.push(movie);
     },
     filterFavorites(state, key) {
-      state.favorites = state.favorites.filter((i) => i.Title.includes(key));
+      state.favorites = state.favorites.filter((i) => i.Title.toLowerCase().includes(key.toLowerCase()));
     },
   },
   actions: {
@@ -44,18 +44,21 @@ export default createStore({
       axios
         .post(`${state.favBaseUrl}`, movie)
         .then((res) => {
+          
           commit("addFavorites", res.data);
           alert(movie.Title + " Favorilere Eklendi");
         })
         .catch((err) => console.error(err));
     },
-    removeFavorites({ commit, state }, id) {
+    removeFavorites({ commit, state }, movie) {
+      console.log(movie);
       axios
-        .delete(`${state.favBaseUrl}/${id}`)
+        .delete(`${state.favBaseUrl}/${movie.id}`)
         .then((res) => {
+          alert(movie.Title+ " Favorilerden kaldırıldı.")
           commit(
             "fillFavorites",
-            state.favorites.filter((i) => i.id !== id)
+            state.favorites.filter((i) => i.id !== movie.id)
           );
         })
         .catch((err) => console.error(err));

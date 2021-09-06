@@ -4,6 +4,7 @@
       class="form-control me-2"
       placeholder="Film adı giriniz"
       @keypress.enter="searchMovies($event.target.value)"
+      @keyup="filterMovies($event.target.value)"
       type="text"
     />
     <button class="btn btn-outline-dark">Search</button>
@@ -15,10 +16,13 @@ export default {
   methods: {
     searchMovies(key) {
       if (this.$route.name === "Favorites") {
-        this.$store.dispatch("filterFavorites", key);
+        this.filterMovies(key);
       } else {
         this.$store.dispatch("searchMovies", key);
       }
+    },
+    filterMovies(key) {
+      this.$store.dispatch("filterFavorites", key);
     },
   },
 };

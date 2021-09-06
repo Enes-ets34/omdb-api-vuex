@@ -1,4 +1,5 @@
-# 22-movie-app-vuex
+# OMDB Api 
+https://www.omdbapi.com/
 
 ## Project setup
 ```

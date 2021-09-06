@@ -57,7 +57,7 @@ export default {
       if (this.favoriteClasses.fas === undefined) {
         this.$store.dispatch("addFavorites", movie);
       } else {
-        this.$store.dispatch("removeFavorites", movie.id);
+        this.$store.dispatch("removeFavorites", movie);
       }
     },
   },
