@@ -36,6 +36,7 @@
               >Favoriler</router-link
             >
           </li>
+          <filter-bar></filter-bar>
         </ul>
         <SearchBar />
       </div>
@@ -45,9 +46,11 @@
 
 <script>
 import SearchBar from "./SearchBar.vue";
+import FilterBar from "../components/FilterBar.vue";
 export default {
   components: {
     SearchBar,
+    FilterBar,
   },
 };
 </script>

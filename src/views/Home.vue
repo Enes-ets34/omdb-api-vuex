@@ -11,6 +11,7 @@
 <script>
 import { mapGetters } from "vuex";
 import MovieList from "../components/MovieList.vue";
+
 // @ is an alias to /src
 
 export default {
@@ -21,6 +22,5 @@ export default {
       getMovies: "getMovies",
     }),
   },
-
 };
 </script>
