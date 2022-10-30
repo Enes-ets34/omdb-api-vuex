@@ -44,6 +44,7 @@ export default createStore({
           withCredentials: false,
           headers: {
             "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
           },
         })
         .then((res) => {
@@ -57,6 +58,7 @@ export default createStore({
           withCredentials: false,
           headers: {
             "Content-Type": "application/json",
+                        'Access-Control-Allow-Origin': '*'
           },
         })
         .then((res) => {
@@ -72,6 +74,7 @@ export default createStore({
             withCredentials: false,
             headers: {
               "Content-Type": "application/json",
+                          'Access-Control-Allow-Origin': '*'
             },
           },
           movie
@@ -89,6 +92,7 @@ export default createStore({
           withCredentials: false,
           headers: {
             "Content-Type": "application/json",
+                        'Access-Control-Allow-Origin': '*'
           },
         })
         .then((res) => {
