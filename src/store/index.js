@@ -7,7 +7,8 @@ export default createStore({
     favorites: [],
     baseUrl: "http://www.omdbapi.com",
     apiKey: "52ea8c67",
-    favBaseUrl: "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server",
+    favBaseUrl:
+      "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server",
   },
   mutations: {
     fillMovies(state, movies) {
@@ -30,7 +31,7 @@ export default createStore({
         years.push(i.Year);
         years.sort((a, b) => b - a);
       });
-       console.log(years);
+      console.log(years);
     },
     ascMovies(state) {
       console.log(key);
@@ -39,7 +40,12 @@ export default createStore({
   actions: {
     searchMovies({ commit, state }, searchKey) {
       axios
-        .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`)
+        .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`, {
+          withCredentials: false,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
         .then((res) => {
           commit("fillMovies", res.data.Search);
         })
@@ -47,7 +53,12 @@ export default createStore({
     },
     getFavorites({ commit, state }) {
       axios
-        .get(`${state.favBaseUrl}`)
+        .get(`${state.favBaseUrl}`, {
+          withCredentials: false,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
         .then((res) => {
           commit("fillFavorites", res.data);
         })
@@ -55,7 +66,16 @@ export default createStore({
     },
     addFavorites({ commit, state }, movie) {
       axios
-        .post(`${state.favBaseUrl}`, movie)
+        .post(
+          `${state.favBaseUrl}`,
+          {
+            withCredentials: false,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          },
+          movie
+        )
         .then((res) => {
           commit("addFavorites", res.data);
           alert(movie.Title + " Favorilere Eklendi");
@@ -65,7 +85,12 @@ export default createStore({
     removeFavorites({ commit, state }, movie) {
       console.log(movie);
       axios
-        .delete(`${state.favBaseUrl}/${movie.id}`)
+        .delete(`${state.favBaseUrl}/${movie.id}`, {
+          withCredentials: false,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
         .then((res) => {
           alert(movie.Title + " Favorilerden kaldırıldı.");
           commit(
