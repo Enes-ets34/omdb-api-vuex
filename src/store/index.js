@@ -46,7 +46,7 @@ export default createStore({
     searchMovies({ commit, state }, searchKey) {
       axios
         .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`, {
-          headers: state.headers 
+         state.headers 
         })
         .then((res) => {
           commit("fillMovies", res.data.Search);
@@ -57,7 +57,7 @@ export default createStore({
       axios
         .get(`${state.favBaseUrl}`, {
           withCredentials: false,
-          headers: state.headers 
+          state.headers 
         })
         .then((res) => {
           commit("fillFavorites", res.data);
@@ -70,7 +70,7 @@ export default createStore({
           `${state.favBaseUrl}`,
           {
             withCredentials: false,
-            headers: state.headers 
+            state.headers 
           },
           movie
         )
@@ -85,7 +85,7 @@ export default createStore({
       axios
         .delete(`${state.favBaseUrl}/${movie.id}`, {
           withCredentials: false,
-          headers: state.headers 
+        state.headers 
         })
         .then((res) => {
           alert(movie.Title + " Favorilerden kaldırıldı.");
