@@ -6,6 +6,11 @@ export default createStore({
     movies: [],
     favorites: [],
     baseUrl: "https://www.omdbapi.com",
+    headers: {
+      "access-control-allow-origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "Access-Control-Allow-Methods": "*",
+    },
     apiKey: "52ea8c67",
     favBaseUrl:
       "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server",
@@ -42,11 +47,7 @@ export default createStore({
     searchMovies({ commit, state }, searchKey) {
       axios
         .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`, {
-          withCredentials: false,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
+          headers: { ...state.headers },
         })
         .then((res) => {
           commit("fillMovies", res.data.Search);
@@ -57,10 +58,7 @@ export default createStore({
       axios
         .get(`${state.favBaseUrl}`, {
           withCredentials: false,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
+          headers: { ...state.headers },
         })
         .then((res) => {
           commit("fillFavorites", res.data);
@@ -73,10 +71,7 @@ export default createStore({
           `${state.favBaseUrl}`,
           {
             withCredentials: false,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
+            headers: { ...state.headers },
           },
           movie
         )
@@ -91,10 +86,7 @@ export default createStore({
       axios
         .delete(`${state.favBaseUrl}/${movie.id}`, {
           withCredentials: false,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
+          headers: { ...state.headers },
         })
         .then((res) => {
           alert(movie.Title + " Favorilerden kaldırıldı.");
