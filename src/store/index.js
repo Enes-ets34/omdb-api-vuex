@@ -5,7 +5,7 @@ export default createStore({
   state: {
     movies: [],
     favorites: [],
-    baseUrl: "http://www.omdbapi.com",
+    baseUrl: "https://www.omdbapi.com",
     apiKey: "52ea8c67",
     favBaseUrl:
       "http://localhost:3000",
