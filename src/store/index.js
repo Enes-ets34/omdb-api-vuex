@@ -8,7 +8,7 @@ export default createStore({
     baseUrl: "https://www.omdbapi.com",
     apiKey: "52ea8c67",
     favBaseUrl:
-    "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server"  
+    "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server/favorites"  
     //"http://localhost:3000",
   },
   mutations: {
