@@ -5,16 +5,14 @@ export default createStore({
   state: {
     movies: [],
     favorites: [],
-    baseUrl: "https://www.omdbapi.com",
+    baseUrl: "http://www.omdbapi.com",
     headers: {
       "access-control-allow-origin": "*",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
       "Access-Control-Allow-Methods": "*",
     },
     apiKey: "52ea8c67",
-    favBaseUrl:
-      "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server",
-    // favBaseUrl: " http://localhost:3000 ",
+    favBaseUrl: "http://localhost:3000",
   },
   mutations: {
     fillMovies(state, movies) {
