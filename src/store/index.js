@@ -12,7 +12,8 @@ export default createStore({
       "Access-Control-Allow-Methods": "*",
     },
     apiKey: "52ea8c67",
-    favBaseUrl: "http://localhost:3000",
+    // favBaseUrl: "http://localhost:3000",
+     favBaseUrl: "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server/favorites",
   },
   mutations: {
     fillMovies(state, movies) {
