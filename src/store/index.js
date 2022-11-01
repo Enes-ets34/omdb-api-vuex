@@ -8,7 +8,8 @@ export default createStore({
     baseUrl: "https://www.omdbapi.com",
     apiKey: "52ea8c67",
     favBaseUrl:
-      "http://localhost:3000",
+    "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server"  
+    //"http://localhost:3000",
   },
   mutations: {
     fillMovies(state, movies) {
