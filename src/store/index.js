@@ -12,8 +12,7 @@ export default createStore({
       "Access-Control-Allow-Methods": "*",
     },
     apiKey: "52ea8c67",
-    // favBaseUrl: "http://localhost:3000",
-     favBaseUrl: "https://my-json-server.typicode.com/Enes-ets34/omdb-api-json-server/favorites",
+    favBaseUrl: "http://localhost:3000",
   },
   mutations: {
     fillMovies(state, movies) {
@@ -46,7 +45,7 @@ export default createStore({
     searchMovies({ commit, state }, searchKey) {
       axios
         .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`, {
-         state.headers 
+          headers: { ...state.headers },
         })
         .then((res) => {
           commit("fillMovies", res.data.Search);
@@ -57,7 +56,7 @@ export default createStore({
       axios
         .get(`${state.favBaseUrl}`, {
           withCredentials: false,
-          state.headers 
+          headers: { ...state.headers },
         })
         .then((res) => {
           commit("fillFavorites", res.data);
@@ -70,7 +69,7 @@ export default createStore({
           `${state.favBaseUrl}`,
           {
             withCredentials: false,
-            state.headers 
+            headers: { ...state.headers },
           },
           movie
         )
@@ -85,7 +84,7 @@ export default createStore({
       axios
         .delete(`${state.favBaseUrl}/${movie.id}`, {
           withCredentials: false,
-        state.headers 
+          headers: { ...state.headers },
         })
         .then((res) => {
           alert(movie.Title + " Favorilerden kaldırıldı.");
