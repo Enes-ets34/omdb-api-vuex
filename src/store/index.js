@@ -6,11 +6,7 @@ export default createStore({
     movies: [],
     favorites: [],
     baseUrl: "http://www.omdbapi.com",
-    headers: {
-      "access-control-allow-origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      "Access-Control-Allow-Methods": "*",
-    },
+
     apiKey: "52ea8c67",
     favBaseUrl: "http://localhost:3000",
   },
@@ -44,9 +40,7 @@ export default createStore({
   actions: {
     searchMovies({ commit, state }, searchKey) {
       axios
-        .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`, {
-          headers: { ...state.headers },
-        })
+        .get(`${state.baseUrl}/?apiKey=${state.apiKey}&s=${searchKey}`)
         .then((res) => {
           commit("fillMovies", res.data.Search);
         })
@@ -54,10 +48,7 @@ export default createStore({
     },
     getFavorites({ commit, state }) {
       axios
-        .get(`${state.favBaseUrl}`, {
-          withCredentials: false,
-          headers: { ...state.headers },
-        })
+        .get(`${state.favBaseUrl}`)
         .then((res) => {
           commit("fillFavorites", res.data);
         })
@@ -67,10 +58,7 @@ export default createStore({
       axios
         .post(
           `${state.favBaseUrl}`,
-          {
-            withCredentials: false,
-            headers: { ...state.headers },
-          },
+
           movie
         )
         .then((res) => {
@@ -82,10 +70,7 @@ export default createStore({
     removeFavorites({ commit, state }, movie) {
       console.log(movie);
       axios
-        .delete(`${state.favBaseUrl}/${movie.id}`, {
-          withCredentials: false,
-          headers: { ...state.headers },
-        })
+        .delete(`${state.favBaseUrl}/${movie.id}`)
         .then((res) => {
           alert(movie.Title + " Favorilerden kaldırıldı.");
           commit(
