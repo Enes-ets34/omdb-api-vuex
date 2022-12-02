@@ -6,9 +6,8 @@ export default createStore({
     movies: [],
     favorites: [],
     baseUrl: "http://www.omdbapi.com",
-
     apiKey: "52ea8c67",
-    favBaseUrl: "http://localhost:3000",
+    favBaseUrl: "http://localhost:3000/favorites",
   },
   mutations: {
     fillMovies(state, movies) {
@@ -21,20 +20,7 @@ export default createStore({
       state.favorites.push(movie);
     },
     filterFavorites(state, key) {
-      state.favorites = state.favorites.filter((i) =>
-        i.Title.toLowerCase().includes(key.toLowerCase())
-      );
-    },
-    descMovies(state) {
-      let years = [];
-      state.movies = state.movies.filter((i) => {
-        years.push(i.Year);
-        years.sort((a, b) => b - a);
-      });
-      console.log(years);
-    },
-    ascMovies(state) {
-      console.log(key);
+      state.favorites = state.favorites.filter((i) => i.Title.toLowerCase().includes(key.toLowerCase()));
     },
   },
   actions: {
@@ -56,12 +42,9 @@ export default createStore({
     },
     addFavorites({ commit, state }, movie) {
       axios
-        .post(
-          `${state.favBaseUrl}`,
-
-          movie
-        )
+        .post(`${state.favBaseUrl}`, movie)
         .then((res) => {
+          
           commit("addFavorites", res.data);
           alert(movie.Title + " Favorilere Eklendi");
         })
@@ -72,7 +55,7 @@ export default createStore({
       axios
         .delete(`${state.favBaseUrl}/${movie.id}`)
         .then((res) => {
-          alert(movie.Title + " Favorilerden kaldırıldı.");
+          alert(movie.Title+ " Favorilerden kaldırıldı.")
           commit(
             "fillFavorites",
             state.favorites.filter((i) => i.id !== movie.id)
@@ -82,14 +65,6 @@ export default createStore({
     },
     filterFavorites({ commit }, key) {
       commit("filterFavorites", key);
-    },
-    sortMovies({ commit }, key) {
-      if (key === "desc") {
-        commit("descMovies", key);
-      }
-      if (key === "asc") {
-        commit("ascMovies", key);
-      }
     },
   },
   getters: {
